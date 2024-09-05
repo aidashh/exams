@@ -11,8 +11,10 @@ const shopSlice = createSlice({
       const product = state.shop.find((item) => item.id === action.payload.id);
 
       if (product) {
-        product.quantyti = product.quantyti + 1;
-        product.totalPrice = product.quantyti * product.price;
+        if (product.quantyti < product.available) {
+          product.quantyti = product.quantyti + 1;
+          product.totalPrice = product.quantyti * product.price;
+        }
       }
     },
     decrementQuantyti: (state, action) => {

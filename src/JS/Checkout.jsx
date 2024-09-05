@@ -18,8 +18,6 @@ const Checkout = () => {
 
   const funcIncrement = (itemId) => {
     dispatch(incrementQuantyti({ id: itemId }));
-    if (shop.totalPrice > 0) {
-    }
   };
   const funcDecrement = (itemId) => {
     dispatch(decrementQuantyti(itemId));
@@ -27,7 +25,7 @@ const Checkout = () => {
   const totalAllAmount = shop.reduce((acc, item) => {
     return acc + item.price * item.quantyti;
   }, 0);
-  const discountedTotal = totalAllAmount > 10000 ? totalAllAmount * 0.9 : null;
+  const discountedTotal = totalAllAmount > 8000 ? totalAllAmount * 0.9 : null;
   return (
     <div>
       <header className={styles.header}>
